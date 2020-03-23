@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="style.css">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,900&display=swap" rel="stylesheet">
+	<title>Conselho do Julius</title>
+</head>
+
+<body class="grid">
+	<header>
+		<h1 class="title">Conselho do Julius</h1>
+
+		<p class="mensagem"></p>
+		<img src="" class="julius">
+	</header>
+	
+	<script>
+	function pulaLinha() {
+		document.write("<br>");
+	}
+
+	function mostrafrase(frase, identificador) {
+		//document.write("<p class='" + identificador + "'>" + frase + "</p>");
+
+		var mensagem = document.querySelector(".mensagem");
+
+
+		mensagem.innerText = frase;
+		mensagem.classList.add(identificador);
+	}
+
+	function mostraimagem(imagem) {
+		//document.write("<img class='julius' src='" + imagem + "'>");
+
+		var julius = document.querySelector(".julius")
+
+		julius.src = imagem;
+	}
+
+	var nome = prompt("Para receber um conselho do Julius, você precisa digitar seu nome");
+	var produto = prompt("O que você quer comprar?");
+	var preco = parseInt(prompt("Quanto custa essa(e) " + produto + ", " + nome + "?"));
+	var investido = parseInt(prompt("Quanto você tem guardado?"));
+
+	var sobra = investido - preco
+
+
+	if (preco > investido) {
+		mostrafrase("Para você comprar um(a) " + produto + " você precisa de um pouco mais, " + nome + ".", "maior");
+		mostraimagem("julius-triste.png");
+	}
+
+	if (preco < investido) {
+		mostrafrase("Tá patrão! Você ainda terá na sua conta R$ " + sobra + " reais para gastar com o que quiser, " + nome, "menor");
+		mostraimagem("julius-feliz.png");
+	}
+
+	if (preco == investido) {
+		mostrafrase("Você tem exatamente o tanto que precisa, " + nome + ". Mas, se você não comprar nada, o desconto será maior!", "igual");
+		mostraimagem("julius-neutro.png");
+	}
+
+
+
+
+
+
+	</script>
+
+	<main>
+		<p class="again"><a href="file:///C:/Users/Paula/Desktop/index.html" >Pedir conselho para o Julius.</a></p>
+
+	</main>
+
+	<footer class="footer">&copy;Esse site custou R$ 2,95. </footer>
+
+</body>
+</html>
